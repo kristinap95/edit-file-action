@@ -11,6 +11,7 @@ const main = async() => {
 
         console.log(distFolder)
         
+        
     }
     catch(error) {
         core.setFailed(error.message);
