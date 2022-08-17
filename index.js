@@ -1,9 +1,9 @@
-import { getInput, setFailed } from '@actions/core';
+const core = require('@actions/core');
 
 const main = async() => {
     try {
         // getInput(name of input from action.yml file)
-        const distFolder = getInput('dist_folder');
+        const distFolder = core.getInput('dist_folder');
         //const jsFile = core.getInput('js_file');
         // const GitToken = core.getInput('token');
         // const octokit = new github.getOctokit(GitToken);
@@ -12,7 +12,7 @@ const main = async() => {
         
     }
     catch(error) {
-        setFailed(error.message);
+        core.setFailed(error.message);
     }
 }
 
