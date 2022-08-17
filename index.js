@@ -1,5 +1,4 @@
-import * as core from '@actions/core';
-import * as github from '@actions/github';
+const core = require('@actions/core');
 
 const main = async() => {
     try {
@@ -10,7 +9,6 @@ const main = async() => {
         // const octokit = new github.getOctokit(GitToken);
 
         console.log(distFolder)
-        
         
     }
     catch(error) {
