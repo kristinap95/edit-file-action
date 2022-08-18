@@ -1,5 +1,7 @@
 const core   = require('@actions/core');
 const github = require('@actions/github');
+const { Octokit } = require("@octokit/rest");
+
 
 const main = async() => {
     try {
@@ -9,8 +11,11 @@ const main = async() => {
         // const GitToken = core.getInput('token');
         // const octokit = new github.getOctokit(GitToken);
 
-        console.log(distFolder);
-        const octoKit = await octokit.request('GET /repos/{owner}/{repo}/actions/artifacts', {
+        const octokit = new Octokit({
+            auth: 'personal-access-token123'
+          })
+
+        await octokit.request('GET /repos/{owner}/{repo}/actions/artifacts', {
             owner: 'kristinap95',
             repo: 'vue-chat'
           })
