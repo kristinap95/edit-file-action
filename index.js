@@ -20,11 +20,11 @@ const main = async() => {
             auth: githubToken,
           })
 
-        await octokit.request('GET /repos/{owner}/{repo}/actions/artifacts', {
+        const octokitAPI = await octokit.request('GET /repos/{owner}/{repo}/actions/artifacts', {
             owner: 'kristinap95',
             repo: 'vue-chat'
           })
-        console.log(octokit   )
+        console.log("API results = ", octokitAPI);
     }
     catch(error) {
         core.setFailed(error.message);
