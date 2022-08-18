@@ -10,7 +10,7 @@ const main = async() => {
         const octokit = new Octokit({
             auth: githubToken,
           })
-
+        console.log("octokit = ", octokit)
         const octokitAPI = await octokit.request('GET /repos/{owner}/{repo}/actions/artifacts', {
             owner: process.env.OWNER,
             repo:  process.env.REPOSITORY,
