@@ -16,14 +16,14 @@ const main = async() => {
         const authentication = await auth();
 
         const octokit = new Octokit({
-            auth: authentication
+            auth: "Iv1.b5d00e0d75592e54"
           })
 
         await octokit.request('GET /repos/{owner}/{repo}/actions/artifacts', {
             owner: 'kristinap95',
             repo: 'vue-chat'
           })
-        console.log(octoKit)
+        console.log(octokit   )
     }
     catch(error) {
         core.setFailed(error.message);
