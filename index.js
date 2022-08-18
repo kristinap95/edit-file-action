@@ -1,7 +1,8 @@
 const core   = require('@actions/core');
 const github = require('@actions/github');
 const { Octokit } = require("@octokit/action");
-
+const { createActionAuth } = require("@octokit/auth-action");
+// or: import { createActionAuth } from "@octokit/auth-action";
 
 const main = async() => {
     try {
@@ -11,8 +12,11 @@ const main = async() => {
         // const GitToken = core.getInput('token');
         // const octokit = new github.getOctokit(GitToken);
 
+        const auth = createActionAuth();
+        const authentication = await auth();
+
         const octokit = new Octokit({
-            auth: 'personal-access-token123'
+            auth: authentication
           })
 
         await octokit.request('GET /repos/{owner}/{repo}/actions/artifacts', {
