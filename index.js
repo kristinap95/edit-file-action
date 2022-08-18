@@ -1,5 +1,5 @@
-const core = require('@actions/core');
-
+const core   = require('@actions/core');
+const github = require('@actions/github');
 
 const main = async() => {
     try {
@@ -9,8 +9,12 @@ const main = async() => {
         // const GitToken = core.getInput('token');
         // const octokit = new github.getOctokit(GitToken);
 
-        console.log(distFolder)
-        
+        console.log(distFolder);
+        const octoKit = await octokit.request('GET /repos/{owner}/{repo}/actions/artifacts', {
+            owner: 'kristinap95',
+            repo: 'vue-chat'
+          })
+        console.log(octoKit)
     }
     catch(error) {
         core.setFailed(error.message);
