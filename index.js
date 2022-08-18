@@ -8,6 +8,7 @@ const main = async() => {
     try {
         // getInput(name of input from action.yml file)
         const distFolder = core.getInput('dist_folder');
+        const githubToken = core.getInput('token');
         //const jsFile = core.getInput('js_file');
         // const GitToken = core.getInput('token');
         // const octokit = new github.getOctokit(GitToken);
@@ -16,7 +17,7 @@ const main = async() => {
         const authentication = await auth();
 
         const octokit = new Octokit({
-            auth: "Iv1.b5d00e0d75592e54"
+            auth: githubToken,
           })
 
         await octokit.request('GET /repos/{owner}/{repo}/actions/artifacts', {

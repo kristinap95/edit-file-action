@@ -11,9 +11,9 @@ inputs:
   # js_file: 
   #   description: "Js file here"
   #   required: true
-  # token:
-  #   description: 'The token to use to access the GitHub API'
-  #   required: true
+  token:
+    description: 'The token to use to access the GitHub API'
+    required: true
     
 runs:
   using: 'node16'
