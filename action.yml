@@ -2,7 +2,7 @@ name: "Edit file action"
 description: "Edit css and js files"
 
 inputs:
-  token:
+  git_token:
     description: 'The token to use to access the GitHub API'
     required: true
     

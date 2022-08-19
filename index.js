@@ -4,10 +4,10 @@ const { Octokit } = require("@octokit/action");
 const main = async() => {
     try {
         // getInput(name of input from action.yml file)
-        const githubToken = core.getInput('token');
+        const githubToken = core.getInput('git_token');
 
         const octokit = new Octokit({
-            auth: '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',
+            auth: githubToken,
           })
         const octokitAPI = await octokit.request('GET /repos/{owner}/{repo}/actions/artifacts', {
             owner: process.env.OWNER,
