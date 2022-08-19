@@ -1,12 +1,11 @@
 const core   = require('@actions/core');
-const github = require('@actions/github');
 const { Octokit } = require("@octokit/action");
 
 const main = async() => {
     try {
         // getInput(name of input from action.yml file)
         const githubToken = core.getInput('token');
-
+        
         const octokit = new Octokit({
             auth: githubToken,
           })
